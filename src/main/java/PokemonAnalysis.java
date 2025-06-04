@@ -100,6 +100,21 @@ public class PokemonAnalysis {
 
     // 5 Calculate the percentage of Pokémon above the average speed stat.
 
+    public static double percentageAboveAverageSpeed() {
+        List<JSONObject> allPokemon = new ArrayList<>(pokeMap.values());
+
+        double avgSpeed = allPokemon.stream()
+                .mapToInt(p -> getStatValue(p, "speed"))
+                .average()
+                .orElse(0);
+
+        long countAboveAvg = allPokemon.stream()
+                .filter(p -> getStatValue(p, "speed") > avgSpeed)
+                .count();
+
+        return 100.0 * countAboveAvg / allPokemon.size();
+    }
+
     private static int getStatValue(JSONObject pokemon, String statName) {
         JSONArray stats = pokemon.getJSONArray("stats");
         for (int i = 0; i < stats.length(); i++) {
