@@ -2,10 +2,6 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class PokemonTest {
     public static void main(String[] args) {
