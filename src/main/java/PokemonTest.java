@@ -11,7 +11,7 @@ public class PokemonTest {
     public static void main(String[] args) {
         JSONObject pokeObj = new JSONObject(Pokemon.getPokemonAPI("https://pokeapi.co/api/v2/pokemon?limit=100offset=0"));
         JSONArray pokemonArray = pokeObj .getJSONArray("results");
-        JSONObject pokemon = new JSONObject(Pokemon.getPokemonAPI("https://pokeapi.co/api/v2/pokemon/terapages"));
+        JSONObject pokemon = new JSONObject(Pokemon.getPokemonAPI("https://pokeapi.co/api/v2/pokemon/pikachu"));
 
         System.out.println("Name: " + pokemon.get("name"));
         System.out.println("Weight: " + pokemon.get("weight"));
@@ -22,7 +22,8 @@ public class PokemonTest {
                     pokeStats.getJSONObject(i).getJSONObject("stat").getString("name"),
                     pokeStats.getJSONObject(i).getInt("base_stat"));
         PokemonAnalysis.initMap();
-        System.out.println(PokemonAnalysis.getPokemap().size);
+        System.out.println(PokemonAnalysis.getPokemap().size());
+
         PokemonAnalysis.printStats();
 
 
